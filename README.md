@@ -1,4 +1,7 @@
 # Simulation-of-Non-Ideal-SQUIDs
+
+**_THIS CODE IS IN PYTHON_**
+
 This code describes the behavior of the current in a SQUID (Super Conducting Quantum Interference Devices) when subject to a quantized magnetic flux.
 
 The array "arrayOfJunctions" signifies where each Josephson Junction is located (and thus where current is flowing). 
