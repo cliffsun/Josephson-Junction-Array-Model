@@ -1,7 +1,7 @@
 # Simulation-of-Non-Ideal-SQUIDs
 This code describes the behavior of the current in a SQUID (Super Conducting Quantum Interference Devices) when subject to a quantized magnetic flux.
 
-The array "arrayOfJunctions" signify where each Josephson Junction is located (and thus where current is flowing). 
+The array "arrayOfJunctions" signifies where each Josephson Junction is located (and thus where current is flowing). 
 
 If the array is as follows: [0, 0.25, 0.5, 1] -> that means that current is flowing from 0 - 0.25 and 0.5 - 1. The space in between 0.25 and 0.5 shows where current _isn't_ flowing.
 
