@@ -5,7 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-arrayOfJunctions = [0, 0.005, 0.33, 0.335, 0.67, 0.675, 0.995, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
+arrayOfJunctions = [0, 0.0005, 0.33, 0.3305, 0.67, 0.6705, 0.9905, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
 
 criticalCurrents = np.ones(int(len(arrayOfJunctions) / 2)) # all the critical currents for each junction (length is (length of arrayOfJunctions)/2)
 
@@ -13,7 +13,7 @@ criticalCurrents = np.ones(int(len(arrayOfJunctions) / 2)) # all the critical cu
 
 # B is the integer value of flux quanta present in the Junction
 
-def current(B, arrJ, arrC, y, d, l, numOfSegments): # l = penetration depth, d is distance between the 2 superconductors, y is initial phase difference of the whole circuit, B is the magnetic field
+def current(B, arrJ, arrC, y, numOfSegments): # y is initial phase difference of the whole circuit, B is the magnetic field
     curr = 0 # summation of all currents in the entire junction
 
     limit = int(len(arrJ) / 2)
@@ -21,13 +21,13 @@ def current(B, arrJ, arrC, y, d, l, numOfSegments): # l = penetration depth, d i
     for n in range(limit):
         sizeOfSegment = float((arrJ[2 * n + 1] - arrJ[2 * n]) / numOfSegments)
         for i in range(numOfSegments):
-            curr += arrC[n] * np.sin(y + (2 * np.pi * B * (2 * l + d)) * (arrJ[2 * n] + i * sizeOfSegment)) * (1/numOfSegments)
+            curr += arrC[n] * np.sin(y + (2 * np.pi * B) * (arrJ[2 * n] + i * sizeOfSegment)) * (1/numOfSegments)
 
     # differential = average distance value between the two junctions divided by the increment (allows for integration)
 
-    # phase difference evolves according to 2 * pi * B * (2 * l + d)
+    # phase difference evolves according to 2 * pi * B
 
-    # curr += (critical current element in array)(sin(y + (2 * pi * B * (2 * l + d)) * length)
+    # curr += (critical current element in array)(sin(y + (2 * pi * B) * length)
 
     return curr
 
@@ -36,7 +36,7 @@ def maxCurrent(B, arrayJ, arrayC):
     Y=np.linspace(0, 2*np.pi, 100)
     dummyArray=[]
     for gamma in Y:
-        dummyArray.append(current(B, arrayJ, arrayC, gamma, 0.5, 0.25, 5)) #perfect SQUID when 2 * l + d = 1 ## NEEDS EXPLORING
+        dummyArray.append(current(B, arrayJ, arrayC, gamma, 5))
     return max(dummyArray)
 
 MagField = np.linspace(0.001, 20, 5000)
