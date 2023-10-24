@@ -5,15 +5,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-arrayOfJunctions = [0, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
+arrayOfJunctions = [0, 0.0005, 0.33, 0.3305, 0.67, 0.6705, 0.9905, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
 
-criticalCurrents = np.ones(int(len(arrayOfJunctions) / 2)) # all the critical currents for each junction (length is (length of arrayOfJunctions)/2)
+criticalCurrents = np.ones(int(len(arrayOfJunctions) / 2)) # all the critical currents for each junction (Critical Currents are assumed to be 1 by default)
 
-# Parameters for Current -> Magnetic Field, Junction Locations, Critical Currents, Initial Phase Difference, Distance between Junctions, Penetration Depth
+# Parameters for Current -> Magnetic Field, Junction Locations, Critical Currents, Initial Phase Difference
 
-# B is the integer value of flux quanta present in the Junction
+# B is the integer value of flux quanta present in the SQUID
 
-def current(B, arrJ, arrC, y, numOfSegments): # y is initial phase difference of the whole circuit, B is the magnetic field
+def current(B, arrJ, arrC, y, numOfSegments): # y is initial phase difference of the whole circuit, B is the magnetic field, arrJ is the location of junctions, arrC is critical current associated with each junction
+    
+    # numOfSegments is the number of sections you divide each junction up into (think of a numerical integration)
+
     curr = 0 # summation of all currents in the entire junction
 
     limit = int(len(arrJ) / 2)
@@ -23,7 +26,7 @@ def current(B, arrJ, arrC, y, numOfSegments): # y is initial phase difference of
         for i in range(numOfSegments):
             curr += arrC[n] * np.sin(y + (2 * np.pi * B) * (arrJ[2 * n] + i * sizeOfSegment)) * (1/numOfSegments)
 
-    # differential = average distance value between the two junctions divided by the increment (allows for integration)
+    # sizeOfSegment = average distance value between the two junctions divided by the increment (allows for integration)
 
     # phase difference evolves according to 2 * pi * B
 
@@ -31,15 +34,14 @@ def current(B, arrJ, arrC, y, numOfSegments): # y is initial phase difference of
 
     return curr
 
-def maxCurrent(B, arrayJ, arrayC):
-    # Spits out the maximum current by varying the gauge invariant phase of the left end (free parameter) gamma
+def maxCurrent(B, arrayJ, arrayC): # Spits out the maximum current by varying the gauge invariant phase of the left end (free parameter) gamma
     Y=np.linspace(0, 2*np.pi, 100)
     dummyArray=[]
     for gamma in Y:
-        dummyArray.append(current(B, arrayJ, arrayC, gamma, 5))
+        dummyArray.append(current(B, arrayJ, arrayC, gamma, 1))
     return max(dummyArray)
 
-MagField = np.linspace(0.001, 20, 5000)
+MagField = np.linspace(0, 100, 5000) # an array of Magnetic Fields ranging from 0 to 100 with 5000 total elements
 
 IMaxPoint = []
 for B in MagField:
