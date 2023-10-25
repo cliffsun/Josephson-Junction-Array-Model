@@ -8,6 +8,6 @@ If the array is as follows: [0, 0.25, 0.5, 1] -> that means that current is flow
 
 This array must have an even number of values. The numbers in the array represent the percentage that the junction is taking up relative to the circuit. So from 0 - 0.25 means that this junction would take up 25% of the circuit (which is a lot!). 
 
-Any questions about the code: you can contact me @ cliffxs2@illinois.edu
+Any questions about the code: you can contact me @cliffxs2@illinois.edu
 
 Credit: Harshvardhan Mantry and Professor Alexey Bezryadin
