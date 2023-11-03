@@ -9,6 +9,16 @@ arrayOfJunctions = [0, 0.00000001, 0.25, 0.25000001, 0.5, 0.50000001, 0.75, 0.75
 
 criticalCurrents = np.ones(int(len(arrayOfJunctions) / 2)) # all the critical currents for each junction (Critical Currents are assumed to be 1 by default)
 
+# prints out the elements in the junction in a better format
+
+index = 0
+while (index < (len(arrayOfJunctions) - 1)):
+    if (index == len(arrayOfJunctions) - 2):
+        print(str(arrayOfJunctions[index]) + " - " + str(arrayOfJunctions[index + 1]), end = " ")
+    else:
+        print(str(arrayOfJunctions[index]) + " - " + str(arrayOfJunctions[index + 1]) + ",", end = " ")
+    index += 2
+
 # Parameters for Current -> Magnetic Field, Junction Locations, Critical Currents, Initial Phase Difference
 
 # B is the integer value of flux quanta present in the SQUID
