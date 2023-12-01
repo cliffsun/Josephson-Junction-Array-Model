@@ -1,4 +1,4 @@
-# Simulation-of-Non-trivial-Josephson-Junction-SQUID
+# Simulation-of-non-trivial-Josephson-Junction-SQUID
 
 This code describes the behavior of the Critical Current in one SQUID (Superconducting Quantum Interference Devices) when subject to a quantized magnetic flux.
 
