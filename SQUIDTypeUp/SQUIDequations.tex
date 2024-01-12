@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+
+\author{Cliff Sun}
+
+\title{General Overview Behind Non-Ideal SQUID Python Program}
+
+\begin{document}
+
+\maketitle
+
+\begin{center} The governing equation \end{center}
+
+\begin{equation}
+    I = I_{c} \sin \Delta \varphi
+\end{equation}
+
+\begin{center} The evolution of the phase difference \end{center}
+
+\begin{equation}
+\Delta \varphi = \Delta\varphi_{0} + 2 \pi B*x
+\end{equation}
+
+\begin{center} Such that B is the applied Magnetic Field, \(\Delta\varphi_{0}\) is the initial phase difference, 
+and x is the spatial distance relative to either of the ends of the SQUID \end{center}
+
+\begin{center} The approximation formula I used for the current of each Josephson Junction \end{center}
+\begin{equation}
+\sum a_{n}dx    
+\end{equation}
+
+\begin{equation}
+current = current + J_d \sin (\Delta\varphi_0 + 2 \pi B*x)dx
+\end{equation}
+
+\begin{center}
+    \(J_d\) is the current density at that Junction \\
+    \(\Delta\varphi_0\) = initial phase difference at that Junction \\
+    B = normalized magentic flux quanta \\
+    location = spatial location of the junction with respect to the ends of the SQUID
+\end{center}
+
+\begin{equation}
+B = (2\lambda + d) \phi_d / \phi_0
+\end{equation}
+
+\begin{center} With units \((unit\:length)^{-1}\) \end{center}
+
+\end{document}  
