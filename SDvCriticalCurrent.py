@@ -123,7 +123,7 @@ FluxField = np.linspace(0.001, 0.2, 1000) # an array of Magnetic Fields ranging 
 
 #----------------------------------
 
-arrayOfJunctions = [0, 0.02, 0.88, 1]
+arrayOfJunctions = [0, 0.00001, 0.99999, 1]
 
 # arrayOfJunctions = [0, 0.01, 0.03, 0.13, 0.14, 0.142, 0.16, 0.36, 0.38, 0.68, 0.681, 0.688, 0.7, 0.75, 0.77, 0.83, 0.84, 0.841, 0.89, 1]
 

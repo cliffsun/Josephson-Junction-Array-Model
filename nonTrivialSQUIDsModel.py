@@ -5,7 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-arrayOfJunctions = [0, 0.01, 0.03, 0.13, 0.14, 0.142, 0.16, 0.36, 0.38, 0.68, 0.681, 0.688, 0.7, 0.75, 0.77, 0.83, 0.84, 0.841, 0.89, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
+arrayOfJunctions = [0, 0.001, 0.999, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
 
 criticalCurrents = np.ones(int(len(arrayOfJunctions) / 2)) # all the critical currents for each junction (Critical Currents are assumed to be 1 by default)
 
@@ -47,13 +47,13 @@ def maxCurrent(B, arrayJ, arrayC, numOfSegments): # Spits out the maximum curren
         dummyArray.append(current(B, arrayJ, arrayC, gamma, numOfSegments))
     return max(dummyArray)
 
-MagField = np.linspace(0, 10, 100) # an array of Magnetic Fields ranging from 0 to 100 with 5000 total elements
+MagField = np.linspace(0, 10, 5000) # an array of Magnetic Fields ranging from 0 to 100 with 5000 total elements
 
 # The 2 lines below is where the useful section of the code is for modeling a SQUID
 
 IMaxPoint = []
 
-numOfSegments = 10
+numOfSegments = 30
 
 for B in MagField:
     IMaxPoint.append(maxCurrent(B, arrayOfJunctions, criticalCurrents, numOfSegments) / int(len(arrayOfJunctions) / 2)) # This integer represents the number of segments you want to cut each junction up into (the higher the number, the better the approximation)
