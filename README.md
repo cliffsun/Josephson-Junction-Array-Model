@@ -1,6 +1,6 @@
-# Simulation-of-non-trivial-Josephson-Junction-SQUID
+# Josephson-Junction-Qubit-Python-Model
 
-This code describes the behavior of the Critical Current in one SQUID (Superconducting Quantum Interference Devices) when subject to a quantized magnetic flux.
+This code describes the behavior of the Critical Current in one JJ-Qubit when subject to a quantized magnetic flux.
 
 The array "arrayOfJunctions" signifies where each Josephson Junction is located (and thus where current is flowing). 
 
