@@ -65,9 +65,9 @@ IMax=[]
 for B in MagField:
     IMax.append(maxCurrent(B, test2))
 
+MagField = MagField * 48.35978485
 
-
-plt.figure(dpi=300)
+# plt.figure(dpi=300)
 plt.plot(MagField, IMax, 'g-')
 plt.xlabel('Magnetic field (T)')          
 plt.ylabel('I_max')  

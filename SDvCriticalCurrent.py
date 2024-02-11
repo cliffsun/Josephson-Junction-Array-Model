@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.constants import h, e
 
 def EvenArrayOfJunctions(sigma, numOfJunctions, width, arrayJ = []): # Generates an array of junctions given some standard deviation & mean width
     junctionCenter = 1/(numOfJunctions - 1)
@@ -123,9 +124,13 @@ FluxField = np.linspace(0.001, 0.2, 1000) # an array of Magnetic Fields ranging 
 
 #----------------------------------
 
-arrayOfJunctions = [0, 0.00001, 0.99999, 1]
+arrayOfJunctions = []
+
+# arrayOfJunctions = [0, 0.00001, 0.99999, 1]
 
 # arrayOfJunctions = [0, 0.01, 0.03, 0.13, 0.14, 0.142, 0.16, 0.36, 0.38, 0.68, 0.681, 0.688, 0.7, 0.75, 0.77, 0.83, 0.84, 0.841, 0.89, 1]
+
+number_of_junctions = 2
 
 #----------------------------------
 
@@ -135,7 +140,7 @@ IMaxPointSigma2 = []
 
 IMaxPointSigma3 = []
 
-junctionNumber = stateOfArray(arrayOfJunctions)[0] if (len(arrayOfJunctions) != 0) else 2
+junctionNumber = stateOfArray(arrayOfJunctions)[0] if (len(arrayOfJunctions) != 0) else number_of_junctions
 
 meanWidth = stateOfArray(arrayOfJunctions)[1] if (len(arrayOfJunctions) != 0) else 0.000001
 
@@ -150,7 +155,7 @@ percentageSigma1 = meanOfArray(arraySigma1)
 
 #----------------------------------
 
-Sigma2 = 0.002
+Sigma2 = 0.005
 
 arraySigma2 = checkArray(ArrayOfJunctions(Sigma2, junctionNumber, meanWidth, arrayOfJunctions))
 
@@ -158,7 +163,7 @@ percentageSigma2 = meanOfArray(arraySigma2)
 
 #----------------------------------
 
-Sigma3 = 0.005
+Sigma3 = 0.01
 
 arraySigma3 = checkArray(ArrayOfJunctions(Sigma3, junctionNumber, meanWidth, arrayOfJunctions))
 
@@ -176,6 +181,11 @@ print(arraySigma2)
 for f in FluxField:
     IMaxPointSigma3.append(maxCurrent(f, arraySigma3[1:-1]))
 print(arraySigma3)
+
+# Normalizes Flux_Field to be for flux quanta
+
+FluxField = FluxField * 50
+
 
 plt.figure(300)
 plt.plot(FluxField, IMaxPointSigma1, 'black' , label="Sigma = " + str(Sigma1) + ": " + str(round(percentageSigma1 * 100, 2)) + "%")
