@@ -19,7 +19,7 @@ def EvenArrayOfJunctions(sigma, numOfJunctions, width, arrayJ = []): # Generates
         arrOfWidths[j + 1] = np.abs(width - arrOfWidthsDiv2[j//2])
     if (len(arrayJ) != 0):
         arrOfJunctions = np.array(arrayJ)
-    arrOfJunctions[1] = arrOfWidths[0] - width
+    arrOfJunctions[1] = arrOfWidths[0]
     for k in range(2, arrOfJunctions.size - 2, 2):
         arrOfJunctions[k] = arrayJ[k] - (arrOfWidths[k//2]/2 - width) if (len(arrayJ) != 0) else k//2 * junctionCenter - arrOfWidths[k//2]/2
         arrOfJunctions[k + 1] = arrayJ[k + 1] + (arrOfWidths[k//2]/2 - width) if (len(arrayJ) != 0) else k//2 * junctionCenter + arrOfWidths[k//2]/2
@@ -43,10 +43,9 @@ def OddArrayOfJunctions(sigma, numOfJunctions, width, arrayJ = []): # Generates 
     for j in range(0, numOfJunctions - 1, 2): 
         arrOfWidths[j] = width + arrOfWidthsDiv2[j//2]
         arrOfWidths[j + 1] = np.abs(width - arrOfWidthsDiv2[j//2])
-    arrOfJunctions[1] = arrOfWidths[0]
     if (len(arrayJ) != 0):
         arrOfJunctions = np.array(arrayJ)
-        arrOfJunctions[1] = arrOfWidths[0] - width
+    arrOfJunctions[1] = arrOfWidths[0]
     for k in range(2, arrOfJunctions.size - 2, 2):
         arrOfJunctions[k] = arrayJ[k] - (arrOfWidths[k//2]/2 - width) if (len(arrayJ) != 0) else k//2 * junctionCenter - arrOfWidths[k//2]/2
         arrOfJunctions[k + 1] = arrayJ[k + 1] + (arrOfWidths[k//2]/2 - width) if (len(arrayJ) != 0) else k//2 * junctionCenter + arrOfWidths[k//2]/2
@@ -130,7 +129,7 @@ arrayOfJunctions = []
 
 # arrayOfJunctions = [0, 0.01, 0.03, 0.13, 0.14, 0.142, 0.16, 0.36, 0.38, 0.68, 0.681, 0.688, 0.7, 0.75, 0.77, 0.83, 0.84, 0.841, 0.89, 1]
 
-number_of_junctions = 2
+number_of_junctions = 5
 
 #----------------------------------
 
@@ -142,7 +141,7 @@ IMaxPointSigma3 = []
 
 junctionNumber = stateOfArray(arrayOfJunctions)[0] if (len(arrayOfJunctions) != 0) else number_of_junctions
 
-meanWidth = stateOfArray(arrayOfJunctions)[1] if (len(arrayOfJunctions) != 0) else 0.000001
+meanWidth = stateOfArray(arrayOfJunctions)[1] if (len(arrayOfJunctions) != 0) else 0.0001
 
 
 #----------------------------------
@@ -185,7 +184,6 @@ print(arraySigma3)
 # Normalizes Flux_Field to be for flux quanta
 
 FluxField = FluxField * 50
-
 
 plt.figure(300)
 plt.plot(FluxField, IMaxPointSigma1, 'black' , label="Sigma = " + str(Sigma1) + ": " + str(round(percentageSigma1 * 100, 2)) + "%")
