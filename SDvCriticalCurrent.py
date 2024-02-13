@@ -46,6 +46,7 @@ def EvenArrayOfJunctions(sigma, numOfJunctions, width, arrayJ = []): # Generates
             arrOfJunctions[k] = k//2 * junctionCenter - arrOfWidths[k//2]/2
             arrOfJunctions[k + 1] = k//2 * junctionCenter + arrOfWidths[k//2]/2
         arrOfJunctions[-2] = 1 - arrOfWidths[-1] # Hard sets the last junction, also necessary otherwise for-loop breaks
+        arrOfJunctions[-1] = 1 # Hard sets the last junction, not accounted for in the for-loop
     return arrOfJunctions
 
 
@@ -90,7 +91,7 @@ def OddArrayOfJunctions(sigma, numOfJunctions, width, arrayJ = []): # Generates 
             arrOfJunctions[k] = k//2 * junctionCenter - arrOfWidths[k//2]/2
             arrOfJunctions[k + 1] = k//2 * junctionCenter + arrOfWidths[k//2]/2
         arrOfJunctions[-2] = 1 - (arrOfWidths[-1] + correctional_last_term)# Hard sets the last junction, also necessary otherwise for-loop breaks
-        arrOfJunctions[-1] = 1 # Only necessary since it's an odd amount of junctions
+        arrOfJunctions[-1] = 1 # Hard sets the last junction, not accounted for in the for-loop
     return arrOfJunctions
 
 def ArrayOfJunctions(sigma, numOfJunctions, width, arrayJ):
@@ -173,13 +174,15 @@ FluxField = np.linspace(0.001, 0.2, 1000) # an array of Magnetic Fields ranging 
 
 #----------------------------------
 
+arrayOfJunctions = []
+
 # arrayOfJunctions = [0, 0.001, 0.3, 0.33, 0.9, 1]
 
 # arrayOfJunctions = [0, 0.00001, 0.99999, 1]
 
-arrayOfJunctions = [0, 0.01, 0.03, 0.13, 0.14, 0.142, 0.16, 0.36, 0.38, 0.68, 0.681, 0.688, 0.7, 0.75, 0.77, 0.83, 0.84, 0.841, 0.89, 1]
+# arrayOfJunctions = [0, 0.01, 0.03, 0.13, 0.14, 0.142, 0.16, 0.36, 0.38, 0.68, 0.681, 0.688, 0.7, 0.75, 0.77, 0.83, 0.84, 0.841, 0.89, 1]
 
-number_of_junctions = 3
+number_of_junctions = 2
 
 #----------------------------------
 
