@@ -85,7 +85,6 @@ def OddArrayOfJunctions(sigma, numOfJunctions, width, arrayJ = []): # Generates 
             arrOfJunctions[k + 1] = arrayJ[k + 1] + (arrOfWidthsDiv2[k//2])
         arrOfJunctions[-2] = arrayJ[-2] - arrOfWidthsDiv2[-1] # Hard sets the last junction, also necessary otherwise for-loop breaks
     else:
-
         correctional_last_term = 0.0001 # Necessary for the last junction due to it being an odd # of junctions
         arrOfJunctions[1] = arrOfWidths[0] # Intializes the first junction, necessary otherwise the for-loop breaks
         for k in range(2, arrOfJunctions.size - 2, 2):
@@ -101,6 +100,7 @@ def ArrayOfJunctions(sigma, numOfJunctions, width, arrayJ):
     else:
         return OddArrayOfJunctions(sigma, numOfJunctions, width, arrayJ)
 
+# Prints out the # of junctions and the mean space occupied by the junctions
 def stateOfArray(arrJ):
     state = []
     state.append(len(arrJ)//2)
@@ -110,22 +110,25 @@ def stateOfArray(arrJ):
     state.append(mean/(len(arrJ)//2))
     return state
 
+# Prints out the percentage occupied by the non-current flowing areas
 def meanOfArray(arrJ):
     percentage = 0
     for i in range(len(arrJ) // 2):
         percentage += (arrJ[2 * i + 1] - arrJ[2 * i]) / 2
     return  1 - percentage
 
+# Checks whether junctions in the outputted array overlap with each other
 def checkArray(arrJ):
     arr = arrJ.copy()
     if not np.array_equal(arr, sorted(arr)):
         if arr[1] > arr[2]:
             arr[1] = arr[2]
-        for i in range(len(arr)//2 - 1):
-            if arr[2 * i + 1] > arr[2 * i + 2]:
+        for i in range(2, len(arr)//2 - 1):
+            if arr[2 * i + 1] > arr[2 * i + 2]: # If the left end of the junction is greater than the right end of the adjacent junction
                 arr[2*i + 1] = arr[2*i + 2]
-            if arr[2 * i] > arr[2 * i + 1]:
+            if arr[2 * i] > arr[2 * i + 1]: # If the left end of the junction is greater than the right end
                 arr[2 * i] = arr[2 * i - 1]
+            
     return arr
 
 # Parameters for Current -> Magnetic Field, Junction Locations, Critical Currents, Initial Phase Difference
