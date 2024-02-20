@@ -175,7 +175,7 @@ FluxField = np.linspace(0.001, 0.2, 1000) # an array of Magnetic Fields ranging 
 
 arrayOfJunctions = []
 
-arrayOfJunctions = [0, 0.001, 0.3, 0.33, 0.9, 1]
+# arrayOfJunctions = [0, 0.001, 0.3, 0.33, 0.9, 1]
 
 #arrayOfJunctions = [0, 0.0001, 0.9999, 1]
 
@@ -206,7 +206,7 @@ percentageSigma1 = meanOfArray(arraySigma1)
 
 #----------------------------------
 
-Sigma2 = 0.05
+Sigma2 = 0.02
 
 arraySigma2 = checkArray(ArrayOfJunctions(Sigma2, junctionNumber, meanWidth, arrayOfJunctions))
 
@@ -214,7 +214,7 @@ percentageSigma2 = meanOfArray(arraySigma2)
 
 #----------------------------------
 
-Sigma3 = 0.1
+Sigma3 = 0.08
 
 arraySigma3 = checkArray(ArrayOfJunctions(Sigma3, junctionNumber, meanWidth, arrayOfJunctions))
 
