@@ -5,7 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-arrayOfJunctions = [0, 0.001, 0.999, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
+arrayOfJunctions = [0, 1] # Where the junctions are located; must be even amount of junctions (includes 0 and 1)
 
 criticalCurrents = np.ones(int(len(arrayOfJunctions) / 2)) # all the critical currents for each junction (Critical Currents are assumed to be 1 by default)
 
