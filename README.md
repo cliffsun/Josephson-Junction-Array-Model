@@ -1,4 +1,4 @@
-# Josephson-Junction-Qubit-Model
+# Josephson-Junction-Quantum-Memory-Device-Model
 
 This code describes the behavior of the Critical Current in one JJ-Qubit when subject to a quantized magnetic flux.
 
