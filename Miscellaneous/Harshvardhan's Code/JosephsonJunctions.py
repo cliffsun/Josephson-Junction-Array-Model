@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 #  0.79543251, 0.83889362, 0.9228953,  0.95009882, 0.95421896, 0.95938356,
 #  0.95951322, 0.98242441]
 # test2=[0.01, 0.03, 0.13, 0.14, 0.142, 0.16, 0.36, 0.38, 0.68, 0.681, 0.688, 0.7, 0.75, 0.77, 0.83, 0.84, 0.841, 0.89]
-test2 = [0.00001, 0.99999]
+test2 = [0.002, 0.999]
 
 def current(B, array, y): # This will give us the value of current flowing across the two superconductors depending on gamma (denoted as y), Magnetic Field B, and the location/widths of the junctions
     l=len(array)
