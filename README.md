@@ -1,6 +1,6 @@
-# Josephson-Junction-Quantum-Memory-Device-Model
+# Josephson-Junction-Array-Model
 
-This code describes the behavior of the Critical Current in one JJ-Qubit when subject to a quantized magnetic flux.
+This code describes the behavior of the Critical Current in one JJ-Array when subject to a quantized magnetic flux.
 
 The array "arrayOfJunctions" signifies where each Josephson Junction is located (and thus where current is flowing). 
 
