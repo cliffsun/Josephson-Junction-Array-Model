@@ -1,0 +1,9 @@
+Sigma = 0, 0.1, 0.3. 
+ 
+ The unperturbed array [with Sigma = 4.336808689942018e-19] was [0.    0.001 0.999 1.   ]. 
+ 
+ The following perturbed arrays were:  
+ 
+ Applied Sigma: 0.1; True Sigma: 0.10000000000000003 -> [0.    0.001 0.799 1.   ] 
+ 
+ Sigma: 0.3;  True Sigma: 0.3 -> [0.    0.001 0.399 1.   ]

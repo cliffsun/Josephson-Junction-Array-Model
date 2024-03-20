@@ -1,9 +1,0 @@
-Sigma = 0, 0.01, 0.02. 
- 
- The unperturbed array was [0.    0.001 0.999 1.   ]. 
- 
- The following perturbed arrays were:  
- 
- Sigma: 0.01 -> [0.00e+00 1.00e-03 9.79e-01 1.00e+00] 
- 
- Sigma: 0.02 -> [0.    0.041 0.999 1.   ]
