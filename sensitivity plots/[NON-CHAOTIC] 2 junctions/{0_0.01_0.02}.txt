@@ -1,8 +1,8 @@
-Sigma = 0, 0.01, 0.02. 
+Change in Sigma = 0.01 - 0, 0.02 - 0. 
  
- The unperturbed array [with Sigma = 4.336808689942018e-19] was [0.0, 0.001, 0.999, 1.0]. 
+ The basis array [with Sigma = 4.336808689942018e-19] was [0.0, 0.001, 0.999, 1.0]. 
  
- The following perturbed arrays were:  
+ The following evaluated arrays were:  
  
  Applied Sigma: 0.01; True Sigma: 0.010000000000000009 -> [0.0, 0.0009999999999999992, 0.979, 1.0] 
  
